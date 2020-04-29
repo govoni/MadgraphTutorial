@@ -1,10 +1,5 @@
 # Madgraph Tutorial
 
-  * indice --> non esiste automatico
-  * link in md files
-  * divisione tipo slide
-  * snippet di codice
-
 ## indice
 
   * [introduzione](01_intro.md)
