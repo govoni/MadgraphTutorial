@@ -1,5 +1,7 @@
 # 3. primo test di utilizzo
 
+[**capitolo secondo**](02_mg.md)
+
 ## 3.1 descrizione di un processo
 
 MG è un programma automatico,
@@ -146,7 +148,7 @@ All'avvio, MG compie una serie di azioni:
 
   * elenco dei processi generati: MG produce la lista dei processi elementari che possono produrre lo stato finale desiderato
   ```
-  MG5_aMC>display processes
+  MG5_aMC> display processes
   Process: u u~ > z WEIGHTED<=2 @1
   Process: c c~ > z WEIGHTED<=2 @1
   Process: d d~ > z WEIGHTED<=2 @1
@@ -155,10 +157,25 @@ All'avvio, MG compie una serie di azioni:
     * pochi per processi semplici, crescono per processi complessi
   * disegno dei diagrammi generati
   ```
-  MG5_aMC>display diagrams
+  MG5_aMC> display diagrams
   ```
   * MG disegna questo per ogni processo:
   ![Zprod](images/Zprod_diagram.png)
     * livello albero dell'interazione per ogni diagramma che partecipa al processo
     * ordine dei vertici: ```QCD=0``` significa che non ci sono vertici forti, ```QED=1``` significa che c'è un vertice elettrodebole
     * questo diagramma corrisponde al processo ```u u~ > z```
+
+
+### 3.3 salvataggio di quanto generato finora
+
+  * MG permette di salvare quanto ha generato in una cartella:
+  ```
+  MG5_aMC> output test_Z
+  ```
+    * il nome ```test_Z``` è scelto dall'utente
+  * per uscire dal terminale intereattivo:
+  ```
+  MG5_aMC> quit
+  ```
+
+[**capitolo quarto**](04_cfg.md)
