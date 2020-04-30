@@ -178,4 +178,17 @@ All'avvio, MG compie una serie di azioni:
   MG5_aMC> quit
   ```
 
+### 3.4 esercizi
+
+  * generare i diagrammi per il processo: ```p p > e+ e-``` e confrontarli con quelli del processo ```p p > z```: 
+    * che differenze ci sono?
+    * sono attese?
+  * generare i diagrammi per il processo: ```p p > w+ w-``` e ```p p > e+ ve e- ve~```:
+    * che differenze ci sono?
+    * sono attese?
+  * generare i diagrammi per il processo: ```p p > t t~```:
+    * cosa c'è di nuovo rispetto ai processi precedenti?
+
+
+
 [**capitolo quarto**](04_cfg.md)
