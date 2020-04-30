@@ -172,7 +172,7 @@ All'avvio, MG compie una serie di azioni:
   ```
   MG5_aMC> output test_Z
   ```
-    * il nome ```test_Z``` è scelto dall'utente
+  * il nome ```test_Z``` è scelto dall'utente
   * per uscire dal terminale intereattivo:
   ```
   MG5_aMC> quit

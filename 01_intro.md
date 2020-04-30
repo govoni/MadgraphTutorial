@@ -95,3 +95,5 @@ Solitamente suddivisa in diversi passaggi, che riproducono le fasi nelle quali a
   * questo si ripercuote sul fatto che gli eventi simulati non hanno tutti la stessa importanza per il calcolo della sezione d'urto: **acquisicono un peso**
     * questo significa che non obbediscono più alla statistica poissoniana, come invece fanno le misure
   * alcuni eventi acquisiscono **peso negativo** che proviene dai termini di correzione NLO virtuale
+
+[**capitolo secondo**](02_mg.md)
