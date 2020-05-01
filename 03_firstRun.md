@@ -1,22 +1,22 @@
-# 3. primo test di utilizzo
+# 3. first test
 
-[**capitolo secondo**](02_mg.md)
+[**chapter two**](02_mg.md)
 
-## 3.1 descrizione di un processo
+## 3.1 process description
 
-MG è un programma automatico,
-quindi è necessario istruire il programma
-riguardo al processo che si vuole generare
+MG is an automatic code generator,
+hence it's necessary to instruct the program
+about the process to be generated
 
-### 3.1.1 le particelle elementari
+### 3.1.1 elementary particles
 
-Ogni particella elementare ha un nome in Madgraph
+Each elementary particle has a name in Madgraph language
 
-| particella  | simbolo | particella  | simbolo |
+| particle    | symbol  | particle    | symbol  |
 | ----------- | ------- | ----------- | ------- |
-| elettrone   | e-      | positrone   | e+      |
+| electron    | e-      | positron    | e+      |
 | neutrino-e  | ve      | anti-ve     | ve~     |
-| muone       | mu-     | antimuone   | mu+     |
+| muon        | mu-     | anti-muon   | mu+     |
 | neutrino-mu | vm      | anti-vm     | vm~     |
 | tau         | ta-     | antitau     | ta+     |
 | neutrino-ta | vt      | anti-vt     | vt~     |
@@ -26,12 +26,12 @@ Ogni particella elementare ha un nome in Madgraph
 | quark s     | s       | anti-s      | s~      |
 | quark t     | t       | anti-t      | t~      |
 | quark b     | b       | anti-b      | b~      |
-| fotone      | a       | gluone      | g       |
-| bosone W-   | w-      | bosone W+   | w+      |
-| bosone Z    | z       | higgs boson | h       |
+| photon      | a       | gluon       | g       |
+| W- boson    | w-      | W+ boson    | w+      |
+| Z boson     | z       | higgs boson | h       |
 
-* più particelle definite qui: [naming scheme](http://madgraph.phys.ucl.ac.be/sm_particles.html)
-* si possono definire particelle nuove:
+* more particles defined in the [naming scheme](http://madgraph.phys.ucl.ac.be/sm_particles.html)
+* one can define new particles:
 ```
 define j = g u c d s u~ c~ d~ s~
 define l+ = e+ mu+
@@ -39,58 +39,60 @@ define l- = e- mu-
 define vl = ve vm vt
 define vl~ = ve~ vm~ vt~
 ```
-* esistono definizioni già esistenti in MG:
+* some of them are already present in MG:
 ```
 define p = g u c d s u~ c~ d~ s~
 ```
 
-### 3.1.2 la descrizione di un processo elementare
+### 3.1.2 the description of an elementary process
 
-dallo stato iniziale allo stato finale a LO:
+From the initial state to the final state, at LO
 
-  * bosone vettore Z a collider di protoni:
-    * stato iniziale: ```p p```
-    * stato finale: ```z```
+  * Z boson at proton colliders:
+    * initial state: ```p p```
+    * final state: ```z```
   ```
   p p > z
   ```
-  * coppie di elettroni a collider di protoni:
-    * stato iniziale: ```p p```
-    * stato finale: ```e+ e-```
+  * electron-positron pairs at proton colliders:
+    * initial state: ```p p```
+    * final state: ```e+ e-```
   ```
   p p > e+ e-
   ```
 
-Il secondo processo **non è equivalente al primo**,
-perché contiene tutti i possibili diagrammi a LO che produono
-una coppia ```e+ e-``` a partire da due protoni,
-mentre il primo produce un bosone vettore non decaduto.
+The second process is **not equivalent to the first one**:
+  * the Z boson is not decayed in the first case
+  * the second process contains all possible diagrams at LO
+    that can produce a ```e+ e-``` pair starting from protons,
+    while the second one has to generate a Z boson
 
-  * coppie di bosoni vettori di segno opposto a collider di protoni:
-    * stato iniziale: ```p p```
-    * stato finale: ```w+ w-```
+  * W boson pairs with opposite charge at proton colliders:
+    * initial state: ```p p```
+    * final state: ```w+ w-```
   ```
   p p > w+ w-
   ```
-  * leptoni carichi e neutri a collider di protoni:
-    * stato iniziale: ```p p```
-    * stato finale: ```e- ve~ mu+ vm```
+  * charged and neutral lepton pairs at proton colliders:
+    * initial state: ```p p```
+    * final state: ```e- ve~ mu+ vm```
   ```
   p p > e- ve~ mu+ vm
   ```
 
-## 3.2 primo test di funzionamento di MG
+## 3.2 fist test of MG
 
-### 3.2.1 avvio di una sessione interattiva
+### 3.2.1 start an interative session
 
-Avviate una sessione interattiva di MG:
+Start the interative session from the MG folder:
 ```
 cd MG5_aMC_v2_7_2/
 ./bin/mg5_aMC
 ```
-All'avvio, MG compie una serie di azioni:
-  * cerca di caricare LHAPDF e FastJet, in questo caso fallisce perché non sono stati installati
-  * carica il modello fisico da utilizzare nella simulazione degli eventi:
+At startup, MG:
+  * tries to load LHAPDF and FastJet;
+    in this case it fails, since they have not been installed
+  * loads the physics model to be used in the simulation:
   ```
   Loading default model: sm
   INFO: load particles
@@ -99,7 +101,7 @@ All'avvio, MG compie una serie di azioni:
   INFO: Run "set stdout_level DEBUG" before import for more information.
   INFO: Change particles name to pass to MG5 convention
   ```
-  * definisce alcune collezioni di particelle:
+  * defines some collections of particles:
   ```
   Defined multiparticle p = g u c d s u~ c~ d~ s~
   Defined multiparticle j = g u c d s u~ c~ d~ s~
@@ -109,17 +111,18 @@ All'avvio, MG compie una serie di azioni:
   Defined multiparticle vl~ = ve~ vm~ vt~
   Defined multiparticle all = g u c d s u~ c~ d~ s~ a ve vm vt e- mu- ve~ vm~ vt~ e+ mu+ t b t~ b~ z w+ h w- ta- ta+
   ```
-    * perché il protone è composto anche da gluoni e anti-quark?
-    * come si fa a dire a MG di generare eventi con due protoni nello stato iniziale, oppure un protone e un antiprotone?
-    * perché i leptoni carichi sono definiti raggruppando soltanto le prime due famiglie leptoniche?
+    * why is the proton constituted of anti-quarks and gluons as well?
+    * how does one instruct MG about colliding protons or anti-protons?
+    * why are charged leptons defined grouping only electrons and muons?
 
-### 3.2.2 generazione di un processo
+### 3.2.2 generating a process
 
-  * produzione di un bosone vettore Z a collider di protoni, a LO:
+  * Z boson production at proton colliders, at LO:
   ```
   MG5_aMC> generate p p > z
   ```
-  * outout di MG:e il programma ha identificato 4 processi con 4 diagrammi
+  * MG output:
+    the program identified 4 processes with 4 diagrams:
   ```
   INFO: Checking for minimal orders which gives processes.
   INFO: Please specify coupling orders to bypass this step.
@@ -144,9 +147,11 @@ All'avvio, MG compie una serie di azioni:
   Total: 4 processes with 4 diagrams
   ```
 
-### 3.2.3 ispezione del processo generato
+### 3.2.3 check of the generated process
 
-  * elenco dei processi generati: MG produce la lista dei processi elementari che possono produrre lo stato finale desiderato
+  * list of the sub-processes identified:
+    MG produces the list of elementary processes
+    that can originate the final state required:
   ```
   MG5_aMC> display processes
   Process: u u~ > z WEIGHTED<=2 @1
@@ -154,41 +159,43 @@ All'avvio, MG compie una serie di azioni:
   Process: d d~ > z WEIGHTED<=2 @1
   Process: s s~ > z WEIGHTED<=2 @1
   ```
-    * pochi per processi semplici, crescono per processi complessi
-  * disegno dei diagrammi generati
+    * the more complex is the final state, the more are the sub-processes
+  * drawing the generated diagrams
   ```
   MG5_aMC> display diagrams
   ```
-  * MG disegna questo per ogni processo:
+  * MG draws this for each process:
   ![Zprod](images/Zprod_diagram.png)
-    * livello albero dell'interazione per ogni diagramma che partecipa al processo
-    * ordine dei vertici: ```QCD=0``` significa che non ci sono vertici forti, ```QED=1``` significa che c'è un vertice elettrodebole
-    * questo diagramma corrisponde al processo ```u u~ > z```
+    * tree level of the interaction for each diagram
+      participating in the process
+    * vertices order: ```QCD=0``` means that there are no QCD vertices
+      ,```QED=1``` means that there is one electroweak vertex
+    * this diagram corresponds to the process ```u u~ > z```
 
+### 3.3 saving of what done so far
 
-### 3.3 salvataggio di quanto generato finora
-
-  * MG permette di salvare quanto ha generato in una cartella:
+  * MG allows to save what it has done in a folder:
   ```
   MG5_aMC> output test_Z
   ```
-  * il nome ```test_Z``` è scelto dall'utente
-  * per uscire dal terminale intereattivo:
+  * the name ```test_Z``` is chosen by the user
+  * to exit:
   ```
   MG5_aMC> quit
   ```
 
-### 3.4 esercizi
+### 3.4 exercises
 
-  * generare i diagrammi per il processo: ```p p > e+ e-``` e confrontarli con quelli del processo ```p p > z```: 
-    * che differenze ci sono?
-    * sono attese?
-  * generare i diagrammi per il processo: ```p p > w+ w-``` e ```p p > e+ ve e- ve~```:
-    * che differenze ci sono?
-    * sono attese?
-  * generare i diagrammi per il processo: ```p p > t t~```:
-    * cosa c'è di nuovo rispetto ai processi precedenti?
+  * generate the diagrams of the process: ```p p > e+ e-```
+    and compare them to the ones of the process```p p > z```:
+    * what are the differences?
+    * did you expect them?
+  * generate the diagrams of the processes : ```p p > w+ w-```
+    and ```p p > e+ ve e- ve~```:
+    * what are the differences?
+    * did you expect them?
+  * generate the diagrams of the process: ```p p > t t~```:
+    * what's new with respect to the previuos ones?
 
 
-
-[**capitolo quarto**](04_cfg.md)
+[**chapter four**](04_cfg.md)
