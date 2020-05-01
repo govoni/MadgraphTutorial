@@ -157,4 +157,4 @@ their study is frequently useful.
   * instrumental backgrounds due to detector effects are not present
     (for example mis-identified jets as leptons)
 
-[**chapeter two**](02_mg.md)
+[**chapter two**](02_mg.md)
