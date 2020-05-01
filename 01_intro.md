@@ -1,99 +1,160 @@
-# 1. introduzione
+# 1. introduction
 
-## 1.1 simulazione di un evento fisico
+## 1.1 simulation of a physics event
 
-### 1.1.1 un evento fisico
+### 1.1.1 an physics event
 
-  * una misura acquisita da un rivelatore di particelle è un evento fisico
+  * a measurement acquired by a particle detector is a physics event
 
   ![event display image](https://cds.cern.ch/record/2713462/files/VVVEventDisplays.001.jpeg?subformat=icon-640)
 
-### 1.1.2 analisi di un evento fisico
+### 1.1.2 physics event analysis
 
-Che cosa deve accadere per portare all'evento fisico finale: **la collisione**
+What does it have to happen to generate a physics event: **the collision**
 
-  * creazione dei fasci di particelle
-  * collisione di pacchetti di particelle, uno per fascio
-    * interazione inelastica di almeno una particella per fascio
-    * se si tratta di protoni, interazione di due partoni (scelto secondo le parton ditribution functions)
-  * interazione delle particelle elementari, descritta perturbativamente   
-  * interazione dei proton remnant che generano underlying event (UE)
-  * parte non perturbativa dell'interazione: showering ed adronizzazione
-  * interazioni aggiuntive generano pile-up (PU)  
+  * particles beam **creation**
+  * particle **bunches collision**, one per colliding beam
+    * **inelastic interaction** of at least one particle per bunch
+    * in case of protons, identification of two partons
+      (according to the parton distribution functions)
+  * interaction of these elementary particles, in the **perturbative regime**
+  * proton remnant interaction, that generates the **underlying event** (UE)
+  * **non-perturbative part** of the interaction: showering and hadronization
+  * additional interactions generate **pile-up** (PU)
 
-Che cosa deve accadere per osservare l'evento fisico finale: **la rivelazione**
+What does it have to happen to measure the physics event: **the detection**
 
-  * i prodotti della collisione viaggiano nel vuoto fino a raggiungere il rivelatore (dopo aver attraversato il tubo a vuoto del fascio)
-  * le particelle cariche tipicamente curvano immerse in un campo magnetico
-  * alcune particelle decadono in volo
-  * le particelle interagiscono con il rivelatore depositando energia al suo interno
-  * i singoli elementi di rivelazione trasformano l'energia in segnale elettrico
+  * the products of the collision travel until they reach the **detector**
+    (after crossing the beam pipe)
+  * charged particle trajectories are typically bent in a **magnetic field**
+  * some of the particles decay in flight
+  * particles interact with the detector, generating **energy deposits**
+  * the single sensing elements of the detectors transform this energy
+    into **electrical signals**
 
-Che cosa deve accadere per osservare l'evento fisico finale: **la ricostruzione**
+What does it have to happen to observe the final event **the reconstruction**
 
-  * i segnali elettrici vengono salvati su disco e nello stesso tempo processati
-  * in caso di eventi molto frequenti, solamente una parte degli eventi viene salvata, con una scelta effettuata durante l'acquisizione dati
-  * i segnali elettrici vengono analizzati per ricostruire numero, tipo e cinematica delle particelle che hanno attraversato il rivelatore
+  * raw electrical signals are saved on disk or tape and,
+    at the same time, processed by **reconstruction algorithms**
+  * in case of high-frequency events,
+    only a fraction of them gets saved,
+    after a choice performed synchronously with the data taking (**trigger**)
+  * electrical signals get **analysed** to reconstruct the number, type and
+    kinematics of the particles that crossed the detector
 
-### 1.1.3 l'analisi dei dati
+### 1.1.3 data analysis
 
-  * obiettivo finale: determinazione di **parametri di un modello**
-  * ottenuta attraverso il confronto dei dati con un modello (**fit**)
-  * la simulazione è il modello che si utilizza nel confronto, quindi si tratta di un **calcolo teorico** svolto con un sistema sofisticato di strumenti software
+  * final objective: determine the **parameters of a theory model**
+  * obtained through the comparison of data to a model (**fit**)
+  * the simulation is the model used in the comparison,
+    it is therefore a **theory calculation** performed with a sophisticated
+    system of software tools
 
-### 1.1.4 la simulazione di un evento fisico
+### 1.1.4 the simulation of a physics event
 
 Solitamente suddivisa in diversi passaggi, che riproducono le fasi nelle quali abbiamo suddiviso l'evento fisico
 
-| fase | descrizione |
+Usually divided into various steps, that reproduce the ones in which
+the physics event was split.
+
+| phase | description |
 | ---  | -------- |
-| collisione delle particelle elementari | calcolo perturbativo dell'urto |
-| showring e adronizzazione | calcolo della parte non perturbativa dell'urto |
-| simulazione (abuso di linguaggio) | interazione radiazione-materia fino al deposito dell'enegia |
-| pile-up addition | sovrapposizione dei depositi energetici dovuti agli eventi di pile-up |
-| digitizzazione | descrizione della risposta dell'elettronica di acquisizione dati |
-| trigger | simulazione delle selezioni *on-line* |
-| ricostruzione | esecuzione degli algoritmi di ricostruzione, solitamente gli stessi utilizzati per gli eventi reali |
+| elementary particles collision | perturbative calculation of the interaction |
+| showering and hadronization | calculation of the non-perturbative part of the interaction |
+| simulation (abuse of language) | radiation-matter interaction, until the energy deposit in the detector |
+| PU addition | overlap to the first event of energy deposits due to PU events |
+| digitisation | simulation of the data acquisition electronics response |
+| trigger | simulation of the *on-line* selections |
+| reconstruction | running of the reconstruction algorithms, usually the same ones used for real events |
 
-## 1.2 la generazione a livello partonico: vantaggi e limitazioni
+## 1.2 parton level generation
 
-### 1.2.1 la collisione delle particelle elementari
+### 1.2.1 elementary particles collision
 
-  * Ogni fase descritta precedentemente è svolta da **programmi dedicati**
-  * Il calcolo perturbativo della collisione è solitamente svolto da programmi detti **a matrix element**
-  * calcolano le probabilità differenziali che la collisione accada, cioè le **sezioni d'urto differenziali**, a partire dagli elementi di matrice costruiti dalla Lagrangiana del processo di interesse
-  * le sezioni d'urto sono differenziali nel massimo numero di variabili possibili per descrivere completamente l'evento: la **cinematica completa di ogni particella di stato finale**
-  * le sezioni d'urto finali da confrontare con le misure sperimentali si calcolano integrando le distribuzioni differenziali
+  * each phase described in the table is performed by
+    **dedicated computing programs**
+  * the perturbative calculation of the interaction is usually performed
+    by programs called **matrix element Monte Carlo generators**
+  * they calculate the differential probabilities that the interaction happens,
+    i.e. **differential cross-sections**,
+    starting from the matrix elements of the interaction
+    built from the Lagrangian of the process of interest
+  * the cross sections are differential in the maximum number of variables,
+    to fully describe the event:
+    this is the **full kinematics of each final state particle**
 
-### 1.2.2 lo studio degli eventi a livello partonico
+### 1.2.2 the study of the events at partonic level
 
-  * l'integrazione viene fatta con il **metodo di Monte Carlo**, cioè con la generazione di punti casuali nello spazio N-dimensionale e il conteggio di quelli che stanno sotto le curve da integrare
-  * all'atto pratico, i programmi di simulazione producono **sequenze dei punti che stanno sotto le curve** da integrare
-  * siccome lo spazio delle fasi è uguale alla cinematica completa dello stato finale, ogni punto è assimilabile ad un evento, come se fosse la **simulazione della parte perturbativa di una collisione**
+  * the integration of the differential cross-sections is performed
+    with the **Monte Carlo method**:
+    generating random numbers in the N-dimensional phase space
+    of the final state differential distribution,
+    and counting how many of the points lay below the function to be intergated
+  * practically,
+    Monte Carlo programs produce
+    **sequences of points that lay under the curves**  to be integrated
+  * since the phase space is the total kinematics of the final state,
+    each generated point may be assimilated to the
+    **simulation of the perturbative part of the collision**
 
 ![particle collision drawing](https://www.hep.lu.se/delphi/images/twophot_col.gif)
 
-## 1.3 la precisione nelle simulazioni
+## 1.3 the theory precision in the simulations
 
-### 1.3.1 non si tratta di eventi reali
+The points generated by Monte Carlo programs are usually called **events**
 
-  * i punti generati dai programmi di simulazione sono solitamente chiamati eventi
-  * non si tratta di eventi reali
-    * **manca la parte non-perturbativa del calcolo**, sia nello stato finale che nello stato iniziale, dove viene applicato il teorema di fattorizzazione
-    * la parte perturbativa **non è nota a tutti gli ordini perturbativi!**
-    * circa ogni processo di collisione di particelle elementari è **noto a tree level** (leading order, LO)
-    * la maggior parte dei processi osservati finora è **nota e simulabile a NLO QCD**
-    * pochissimi processi sono noti a NLO EWK
-  * la simlazione differenziale è **meno precisa di calcoli integrali**
-    * alcuni processi sono noti analiticamente a NNLO QCD, quasi nessuno simulato con questa precisione
-    * un processo (la produzione di bosoni di Higgs tramite gluon fusion) è noto a N3LO, non simulato
-    * per alcuni processi si conoscono le correzioni NNLO EWK
+### 1.3.1 these are not real events
 
-### 1.3.2 non si tratta nemmeno di eventi simulati
+  * they are not real events
+    * **the non-perturbative part of the calculation is missing**,
+      both in the initial and final states
+      (remember the factorisation theorem)
+    * the perturbative part is **not known at all orders**
+  * almost any collision process is known and simulated at **tree level**
+    (leading order, LO)
+  * most of the processes observed so far are
+    **known and simulated at NLO QCD**
+  * a handful of processes are **known and simulated at NLO EWK**
+  * there exist processes where the theory calculations
+    which are **more precise than the event simulation**
+    * some processes known at NNLO QCD,
+      almost no one is simulated with such a precision
+    * one process (gluon fusion Higgs boson production)
+      known at N3LO QCD, not simulated
+    * for some processes the NLO EW corrections are known
 
-  * le correzioni perturbative NLO aggiungono **termini reali e virtuali alla sezione d'urto totale**
-  * questo si ripercuote sul fatto che gli eventi simulati non hanno tutti la stessa importanza per il calcolo della sezione d'urto: **acquisicono un peso**
-    * questo significa che non obbediscono più alla statistica poissoniana, come invece fanno le misure
-  * alcuni eventi acquisiscono **peso negativo** che proviene dai termini di correzione NLO virtuale
+### 1.3.2 these are not actual simulated events either
+
+  * NLO perturbative corrections add **real and virtual terms**
+    to the total cross-section
+  * this reflects in the fact that not all simulated events have the same
+    importance for the cross-section calculation:
+    they **acquire a weight**
+    * they do not obey to Poisson statistics (measurements do)
+    * some events may acquire **negative weight**,
+      that usually originates from the NLO virtual terms
+
+## 1.4 parton level studies
+
+Even if the physics event is not completely described
+by the product of the Monte Carlo event generator,
+their study is frequently useful.
+
+### 1.4.1 advantages
+
+  * tight link between the outcome of the study
+    and the perturbative part of the calculation
+    helps in **grasping the main physics effects** in play
+  * generation of events is **fast and requires little space**
+
+### 1.4.1 limitations
+
+  * **non-perturbative effects** are neglected,
+    therefore all quantities that are affected by that
+    are not meaningful
+  * no description of the **resolution** in the event reconstruction,
+    either due to non-perturbative or detector effects
+  * instrumental backgrounds due to detector effects are not present
+    (for example mis-identified jets as leptons)
 
 [**capitolo secondo**](02_mg.md)
