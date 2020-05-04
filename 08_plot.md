@@ -66,6 +66,7 @@ c1.Print ("minv.png", "png") ;
 ```		
 The resulting figure is the following:
 ![canvas](images/minv.png)
+An example of the code can be found [here](./readLHE/fillHistos.cpp)
 
 ## 8.4 questions and exercises
 
