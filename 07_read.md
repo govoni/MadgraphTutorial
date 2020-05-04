@@ -78,7 +78,7 @@ int events = 0 ;
 ```
 Start the loop over the events:
 ```c
-//PG loop over input events
+// loop over input events
 while (reader.readEvent ())
   {
 ```
@@ -153,4 +153,6 @@ if (maxEvents > 0 && maxEvents < events)
     to the total number of events
   * count the fraction of times in which a Z boson in present in the event,
     for the production ```p p > e+ e-```
-  * check whther the electron and positron are back-to-back in all the events  
+  * check whether the electron and positron are back-to-back in all the events  
+  * replace the ROOT [TLorentzVector](https://root.cern.ch/doc/master/classTLorentzVector.html) class
+    with the [ROOT::Math::LorentzVector ](https://root.cern.ch/doc/master/classROOT_1_1Math_1_1LorentzVector.html) template

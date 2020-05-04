@@ -61,7 +61,7 @@ int main (int argc, char ** argv)
 
   int events = 0 ;
    
-  //PG loop over input events
+  // loop over input events
   while (reader.readEvent ()) 
     {
       if (events++ % 10000 == 0) cout << "        reading event in file: " << events << endl ;
