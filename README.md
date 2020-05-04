@@ -1,6 +1,12 @@
 # Madgraph Tutorial
 
-## indice
+## prerequisites
+
+The reader is assumed to have familiarity with the Linux operative system,
+the use of the terminal shell,
+the C++ programming language and the ROOT data analysis package.
+
+## table of content
 
   * [Chapter 1](01_intro.md): introduction on event generation
   * [Chapter 2](02_mg.md): general description of Madgraph and
@@ -10,4 +16,4 @@
   * [Chapter 5](05_gen.md): the first generation of events
   * [Chapter 6](06_LHE.md): understanding the event files, the LHE format
   * [Chapter 7](07_read.md): reading the LHE files
-  * [exercises](08_es.md)
+  * [Chapter 8](08_plot.md): filling a histogram when reading a LHE file
