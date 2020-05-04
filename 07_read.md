@@ -147,7 +147,7 @@ if (maxEvents > 0 && maxEvents < events)
   }
 ```
 
-## 7.4 reading library
+## 7.4 exercises
 
   * check that the number of electrons and positrons corresponds
     to the total number of events
