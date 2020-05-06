@@ -6,6 +6,15 @@ The reader is assumed to have familiarity with the Linux operative system,
 the use of the terminal shell,
 the C++ programming language and the ROOT data analysis package.
 
+## general structure
+
+The tutorial assumes no prior knowledge of the reader
+about the Madgraph generator,
+while relies on general knowledge
+typical of the first year of a master in high-energy physics.
+Each chapter addresses a single subject,
+and chapters are expected to be read in sequence.
+
 ## table of content
 
   * [Chapter 1](01_intro.md): introduction on event generation
@@ -17,3 +26,4 @@ the C++ programming language and the ROOT data analysis package.
   * [Chapter 6](06_LHE.md): understanding the event files, the LHE format
   * [Chapter 7](07_read.md): reading the LHE files
   * [Chapter 8](08_plot.md): filling a histogram when reading a LHE file
+  * [Chapter 9](08_inter.md): intermediate particles in the diagrams
