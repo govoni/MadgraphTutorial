@@ -2,7 +2,7 @@
 
 [**chapter nine**](09_inter.md)
 
-## 10.1 an example to start with: Z boson plus two jets
+## 10.1 an example to start with: Z boson plus two partons
 
   * MG may be used to produce processes *with also quarks in the final state*
   * One example of such a generation is a Z boson accompanied by two quarks
@@ -22,8 +22,22 @@ output zjj_default
 cd zjj_default/
 find . -name "*.ps"
 ```
-  * MG will generate the processes with the minimal number of QED vertices needed:
+  * MG will generate the processes with the *minimal number of QED vertices needed*. 
+    In the following example diagram, there are:
+      * one QED vertex for the production of the Z boson
+      * two QCD vertices for the production of the two final state quarks
+![Zjj_default](images/Zjj.png)
 
+
+### 10.2 the electro-weak production of a Z boson with two partons
+
+  * The same process may be produced with a *purely electroweak process*:
+    ![Zjj_EWK](images/Zjj_EWK.png)
+  * This may be obtained by forcing the number of QCD vertices in the process:
+```
+generate p p > z j j
+output zjj_ewk
+```
 
 
 
