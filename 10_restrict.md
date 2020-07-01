@@ -1,18 +1,18 @@
-# 10. restrict the allowed processes in the event generation
+# 10. specify the allowed processes in the event generation
 
 [**chapter nine**](09_inter.md)
 
 ## 10.1 an example to start with: Z boson plus two partons
 
-  * MG may be used to produce processes *with also quarks in the final state*
-  * One example of such a generation is a Z boson accompanied by two quarks
+  * MG may be used to produce processes *with also partons (quarks or gluons) in the final state*
+  * One example of such a generation is a Z boson accompanied by two partons
     (where the definition of j can be found in [chapter 3](03_firstRun.md)):
 ```
 generate p p > z j j
 output zjj_default
 ```
 
-### 10.1.1 the analysis of the process
+### 10.1.1 the anatomy of the process
 
   * The outcome of the process generation will contain diagrams
     featuring *strong and the electroweak coupling vertices*, 
@@ -35,9 +35,10 @@ find . -name "*.ps"
     ![Zjj_EWK](images/Zjj_EWK.png)
   * This may be obtained by forcing the number of QCD vertices in the process:
 ```
-generate p p > z j j
+generate p p > z j j QCD=0
 output zjj_ewk
 ```
+  * _nota bene_ the request ```QCD=N``` allows for up to N QCD vertices in the event
 
 ## 10.3 exercises
 
