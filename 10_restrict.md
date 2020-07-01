@@ -29,7 +29,7 @@ find . -name "*.ps"
 ![Zjj_default](images/Zjj.png)
 
 
-### 10.2 the electro-weak production of a Z boson with two partons
+## 10.2 the electro-weak production of a Z boson with two partons
 
   * The same process may be produced with a *purely electroweak process*:
     ![Zjj_EWK](images/Zjj_EWK.png)
@@ -39,9 +39,7 @@ generate p p > z j j
 output zjj_ewk
 ```
 
+## 10.3 exercises
 
-
-10.2 DY + 2 jets QED
-
-10.3 DY + 2 jets QCD
-
+  * what is the value of the cross section in the two cases considered?
+  * repeat the same exercise for the generation of pair of top quarks at the LHC
