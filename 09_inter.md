@@ -82,3 +82,6 @@ This last approach is not considered in the tutorial.
 		* are there differences in the number and type of diagrams
 		  generated in the three cases?
 		* are the effects of cutoffs introduced in the ```run_card.dat``` visible?
+
+[**chapter ten**](10_restrict.md)
+
