@@ -27,4 +27,4 @@ and chapters are expected to be read in sequence.
   * [Chapter 7](07_read.md): reading the LHE files
   * [Chapter 8](08_plot.md): filling a histogram when reading a LHE file
   * [Chapter 9](08_inter.md): intermediate particles in the diagrams
-  * [Chapter 10](10_restict.md): limit the type of processes in the event geneation
+  * [Chapter 10](10_restrict.md): limit the type of processes in the event geneation
