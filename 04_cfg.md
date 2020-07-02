@@ -1,6 +1,6 @@
 # 4. MG running parameters
 
-[**chapter three**](02_firstRun.md)
+[**chapter three**](03_firstRun.md)
 
 ## 4.1 the saved folder
 
