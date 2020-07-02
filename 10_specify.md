@@ -16,7 +16,7 @@ output zjj_default
 
   * The outcome of the process generation will contain diagrams
     featuring *strong and the electroweak coupling vertices*, 
-    indicated as QCD and QED respectively in the MG drawings
+    indicated as ```QCD``` and ```QED``` respectively in the MG drawings
   * To find the images of the calculated diagrams:  
 ```
 cd zjj_default/
@@ -38,9 +38,13 @@ find . -name "*.ps"
 generate p p > z j j QCD=0
 output zjj_ewk
 ```
-  * _nota bene_ the request ```QCD=N``` allows for up to N QCD vertices in the event
+  * _nota bene_ the request ```QCD=N``` allows for up to N QCD vertices in the event 
+    (the same holds for the ```QED``` vertices)
+  * _nota bene_ the request ```QED==k``` allows for exactly k QED vertices in the event 
+    (the same holds for the ```QCD``` vertices)
 
 ## 10.3 exercises
 
   * what is the value of the cross section in the two cases considered?
+  * what does it happen if both the ```QED``` and ```QCD``` numbers are fixed?
   * repeat the same exercise for the generation of pair of top quarks at the LHC
