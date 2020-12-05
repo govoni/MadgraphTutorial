@@ -8,31 +8,31 @@
     * a top quark, once produced, decays into a W boson and a b quark
     * the W boson then in turn disintegrates in a lepton-neutrino pair or in a quark pair
   * the production of a pair of undecayed top quarks is coded as follows:
-```
-generate p p > t t~
-```
+    ```
+    generate p p > t t~
+    ```
 
 ## 11.2 the particle decay syntax
 
   * instructions on how to use the ```generate``` instruction can be obtained
     from MG itself:
-```
-generate p p > t t~
-```
-  * this will produce an ouptut, where the section concerning the decay chains is the folliwng,
+    ```
+    generate p p > t t~
+    ```
+  * this will produce an ouptut, where the section concerning the decay chains is the following,
     where in particular the example for the top quark pairs is reported,
     for the semi-leptonic decay when the top quark decays leptonically, 
     while the anti-top decays hadronically:
-```
-./bin/mg5_aMC 
-MG5_aMC>help generate
-[...]
-Decay chain syntax:
- o core process, decay1, (decay2, (decay2', ...)), ...  etc
- o Example: generate p p > t~ t QED=0, (t~ > W- b~, W- > l- vl~), t > j j b @2
- > Note that identical particles will all be decayed.
-[...]
-```  
+    ```
+    ./bin/mg5_aMC 
+    MG5_aMC>help generate
+    [...]
+    Decay chain syntax:
+     o core process, decay1, (decay2, (decay2', ...)), ...  etc
+     o Example: generate p p > t~ t QED=0, (t~ > W- b~, W- > l- vl~), t > j j b @2
+     > Note that identical particles will all be decayed.
+    [...]
+    ```  
 
 ## 11.2 the possible decay chains
 
@@ -41,36 +41,36 @@ Decay chain syntax:
   * assuming the multi-particle definitions of [Chapter 3](03_firstRun.md), 
     the *fully leptonic case* happens when the W bosons produced in both top and anti-top
     quark decays disintegrate into lepton-neutrino:
-```
-generate p p > t~ t, (t~ > W- b~, W- > l- vl~), (t > W+ b, W+ > l+ vl)
-```
+    ```
+    generate p p > t~ t, (t~ > W- b~, W- > l- vl~), (t > W+ b, W+ > l+ vl)
+    ```
   * the generated decays can be inspected within MG:
-```
-MG5_aMC>display processes
-Process: g g > t~ t WEIGHTED<=2 @1
-Process: u u~ > t~ t WEIGHTED<=2 @1
-Process: c c~ > t~ t WEIGHTED<=2 @1
-Process: d d~ > t~ t WEIGHTED<=2 @1
-Process: s s~ > t~ t WEIGHTED<=2 @1
-Decays:
-  Process: t~ > w- b~ WEIGHTED<=2
-  Decays:
-    Process: w- > e- ve~ WEIGHTED<=2
-    Process: w- > mu- vm~ WEIGHTED<=2
-  Process: t > w+ b WEIGHTED<=2
-  Decays:
-    Process: w+ > e+ ve WEIGHTED<=2
-    Process: w+ > mu+ vm WEIGHTED<=2
-```
+    ```
+    MG5_aMC>display processes
+    Process: g g > t~ t WEIGHTED<=2 @1
+    Process: u u~ > t~ t WEIGHTED<=2 @1
+    Process: c c~ > t~ t WEIGHTED<=2 @1
+    Process: d d~ > t~ t WEIGHTED<=2 @1
+    Process: s s~ > t~ t WEIGHTED<=2 @1
+    Decays:
+      Process: t~ > w- b~ WEIGHTED<=2
+      Decays:
+        Process: w- > e- ve~ WEIGHTED<=2
+        Process: w- > mu- vm~ WEIGHTED<=2
+      Process: t > w+ b WEIGHTED<=2
+      Decays:
+        Process: w+ > e+ ve WEIGHTED<=2
+        Process: w+ > mu+ vm WEIGHTED<=2
+    ```
 
 ### 11.2.2 the fully hadronic decay
 
   * still assuming the multi-particle definitions of [Chapter 3](03_firstRun.md), 
     the *fully hadronic case* happens when the W bosons produced in both top and anti-top
     quark decays disintegrate into quarks:
-```
-generate p p > t~ t, (t~ > W- b~, W- > j j), (t > W+ b, W+ > j j)
-```
+    ```
+    generate p p > t~ t, (t~ > W- b~, W- > j j), (t > W+ b, W+ > j j)
+    ```
 
 ### 11.2.3 the semi-leptonic decay
 
@@ -80,14 +80,27 @@ generate p p > t~ t, (t~ > W- b~, W- > j j), (t > W+ b, W+ > j j)
     while the other one into quarks.
   * in this situation, either the W+ or the W- may decay leptonically,
     therefore two processes have to be considered:  
-```
-generate p p > t~ t, (t~ > W- b~, W- > j j), (t > W+ b, W+ > l+ vl) @1
-add process p p > t~ t, (t~ > W- b~, W- > l- vl~), (t > W+ b, W+ > j j) @2
-
-```
+    ```
+    generate p p > t~ t, (t~ > W- b~, W- > j j), (t > W+ b, W+ > l+ vl) @1
+    add process p p > t~ t, (t~ > W- b~, W- > l- vl~), (t > W+ b, W+ > j j) @2
+    
+    ```
   * the ```@``` symbol indicates the identification of the process
 
-### 11.3 exercises
+## 11.3 requesting the presence of intermediate particles in the process
+
+### 11.3.1 forcing an s-channel particle
+
+  * it is possible to ask Madgraph to generate only a sub-set of diagrams
+    that originate from a given process
+  * the following process generates all possible diagrams
+    with one ```w+``` boson and one ```z``` boson present anywhere in the diagram
+    in the s-channel:
+    ```
+    generate p p > w+ z > e+ e- mu+ vm j j
+    ```  
+
+## 11.4 exercises
 
   * generate the fully-leptonic top pair production 
     charaterised by two leptons of different flavour in the final state
