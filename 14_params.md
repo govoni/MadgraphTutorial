@@ -9,9 +9,9 @@ The table below shows a list of them with their description.
 
 | file | content |
 | ----------- | ----------- |
-| run_card.dat | data taking conditions description: beam energy, pdfs, event selection... |
-| param_card.dat | physics process description: particles definition, process definition... |
-|  |  |
+| run_card.dat | data taking conditions description: beam energy, pdfs, event selection, ... |
+| param_card.dat | physics process description: particles definition, process definition, ... |
+| mg5_configuration.txt | generic setup: external linked libraries, running mode, ... |
 |  |  |
 |  |  |
 |  |  |
