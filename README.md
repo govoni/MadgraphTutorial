@@ -31,6 +31,9 @@ and chapters are expected to be read in sequence.
   * [chapter 11](11_decayChains.md): generate a specific decay process
   * [chapter 12](12_pdf.md): the parton distribution functions
   * [chapter 13](13_import.md): importing physics models
-  * [chapter 14](14 params.md): setting Standard Model parameters
+  * [chapter 14](14_params.md): setting Standard Model parameters
+  * [chapter 15](15_externalLibs.md): using exernal libraries
+  * [chapter 16](14_scripts.md): using scripts to run Madgraph
+
 
 
