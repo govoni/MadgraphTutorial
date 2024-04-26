@@ -33,7 +33,7 @@ and chapters are expected to be read in sequence.
   * [chapter 13](13_import.md): importing physics models
   * [chapter 14](14_params.md): setting Standard Model parameters
   * [chapter 15](15_externalLibs.md): using exernal libraries
-  * [chapter 16](14_scripts.md): using scripts to run Madgraph
+  * [chapter 16](16_scripts.md): using scripts to run Madgraph
 
 
 
