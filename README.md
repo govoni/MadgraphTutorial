@@ -28,12 +28,12 @@ and chapters are expected to be read in sequence.
   * [Chapter 8](08_plot.md): filling a histogram when reading a LHE file
   * [Chapter 9](08_inter.md): intermediate particles in the diagrams
   * [Chapter 10](10_specify.md): limit the type of processes in the event geneation
-  * [chapter 11](11_decayChains.md): generate a specific decay process
-  * [chapter 12](12_pdf.md): the parton distribution functions
-  * [chapter 13](13_import.md): importing physics models
-  * [chapter 14](14_params.md): setting Standard Model parameters
-  * [chapter 15](15_externalLibs.md): using exernal libraries
-  * [chapter 16](16_scripts.md): using scripts to run Madgraph
+  * [Chapter 11](11_decayChains.md): generate a specific decay process
+  * [Chapter 12](12_pdf.md): the parton distribution functions
+  * [Chapter 13](13_import.md): importing physics models
+  * [Chapter 14](14_params.md): setting Standard Model parameters
+  * [Chapter 15](15_externalLibs.md): using exernal libraries
+  * [Chapter 16](16_scripts.md): using scripts to run Madgraph
 
 
 
